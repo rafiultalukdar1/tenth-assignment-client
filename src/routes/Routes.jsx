@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivetRoute from "../context/PrivetRoute";
 import UpcomingEvents from "../pages/UpcomingEvents/UpcomingEvents";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register,
+            },
+            {
+                path: '/event-details/:id',
+                loader: ({params}) => fetch(`http://localhost:3000/events/${params.id}`),
+                element: <PrivetRoute><EventDetails></EventDetails></PrivetRoute>
             }
         ]
     }

@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const {user, logOut} = use(AuthContext);
     const [open, setOpen] = useState(false);
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
     // Log Out
     const handleLogOut = () => {
@@ -20,6 +21,19 @@ const Navbar = () => {
             })
     };
 
+    // Dark mood
+    useEffect(() => {
+        const html = document.querySelector("html");
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+
+
+    const handleTheme = (checked) => {
+        setTheme(checked ? "dark" : "light");
+    };
+
+
     const links = <>
         <NavLink to='/create-event'>Create Event</NavLink>
         <NavLink to='/manage-events'>Manage Events</NavLink>
@@ -28,7 +42,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='bg-[#F8F8F8] shadow-sm py-2.5 sticky top-0 z-99'>
+            <div className='bg-[#F8F8F8] dark:bg-gray-900 shadow-sm dark:shadow-md py-2.5 sticky top-0 z-99'>
                 <div className='navbar container'>
                     <div className='navbar-start'>
                         <div className='dropdown'>
@@ -44,7 +58,6 @@ const Navbar = () => {
                         </div>
                         <NavLink to='/' className='flex items-center gap-1.5 text-[20px] sm:text-[22px] font-bold text-[#219E64]'><FaRegCalendar /><span>EventSphere</span></NavLink>
                     </div>
-                    
                     <div className='navbar-end gap-6'>
                         <div className='navbar-center hidden lg:flex'>
                             <nav className='flex items-center gap-[22px]'>
@@ -52,7 +65,9 @@ const Navbar = () => {
                                 <NavLink to='/upcoming-events'>Upcoming Events</NavLink>
                             </nav>
                         </div>
-                        
+                        <div>
+                            <input onChange={(e) => handleTheme(e.target.checked)} type="checkbox" defaultChecked={localStorage.getItem('theme') === "dark"} className="toggle"/>
+                        </div>
                         {
                             user ? (
                                 <>

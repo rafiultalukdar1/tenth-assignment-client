@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 .container {
   max-width: 1400px;
@@ -13,9 +17,7 @@ body {
 }
 
 nav a {
-  font-size: 18px;
-  font-weight: 600;
-  color: black;
+  @apply text-[18px] font-semibold text-black dark:text-white;
 }
 
 nav a.active {
