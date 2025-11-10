@@ -73,7 +73,7 @@ const EventDetails = () => {
                                 <div className='grid grid-cols-1 sm:grid-cols-2 mt-4 gap-2.5'>
                                     <div className='flex items-center gap-2.5'>
                                         <div className='bg-[#E9F7EF] w-10 h-10 rounded-full flex items-center justify-center'><FaRegCalendar className='text-[#219E64] text-[18px]'/></div>
-                                        <h4 className='text-[18px] text-[#141414] dark:text-white font-semibold'>{event_date}</h4>
+                                        <h4 className='text-[18px] text-[#141414] dark:text-white font-semibold'>{new Date(event_date).toLocaleDateString('en-CA')}</h4>
                                     </div>
                                     <div className='flex items-center gap-2.5'>
                                         <div className='bg-[#E9F7EF] w-10 h-10 rounded-full flex items-center justify-center'><FaMapMarkerAlt className='text-[#219E64] text-[18px]'/></div>

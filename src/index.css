@@ -34,11 +34,13 @@ nav a.active {
 }
 
 .form-label {
-  @apply label text-[#001931] text-[18px] font-semibold pt-2;
+  @apply label text-[#001931] dark:text-white text-[18px] font-semibold pt-2;
 }
 
 .form-input {
   @apply w-full px-[15px] py-2 text-[#464545] text-[15px] outline-0 border border-[#219e648f] focus:border-[#219E64] bg-[#F3F3F3] rounded;
+
+  @apply dark:text-[#F3F3F3] dark:bg-gray-900 dark:border-[#219E6480] dark:focus:border-[#219E64];
 }
 
 .divider::before,
@@ -51,5 +53,5 @@ button {
   cursor: pointer;
 }
 .google-button {
-  @apply flex items-center justify-center gap-2 w-full border border-[#219E64] py-2 duration-200 bg-white hover:bg-[#219e6438] rounded text-[15px] text-[#141414] font-medium;
+  @apply flex items-center justify-center gap-2 w-full border border-[#219E64] py-2 duration-200 bg-white dark:bg-gray-900 dark:text-white hover:bg-[#219e6438] rounded text-[15px] text-[#141414] font-medium;
 }

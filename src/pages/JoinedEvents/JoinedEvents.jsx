@@ -58,7 +58,7 @@ const JoinedEvents = () => {
     <>
         <div className='py-[50px] md:py-[70px]'>
             <div className='container'>
-                <h2 className='text-center text-[32px] sm:text-[40px] lg:text-[50px] font-bold'>My <span className='bg-linear-to-b from-[#219E64] to-[#5FD68E] bg-clip-text text-transparent'>Joined Events</span></h2>
+                <h2 className='text-center text-[32px] sm:text-[40px] lg:text-[50px] font-bold'>My Joined <span className='bg-linear-to-b from-[#219E64] to-[#5FD68E] bg-clip-text text-transparent'>Events</span></h2>
                 {joinedEvents.length === 0 ? (
                     <p className='text-gray-600 dark:text-indigo-100 text-center py-10'>You haven't joined any events yet.</p>
                 ) : (
@@ -72,9 +72,8 @@ const JoinedEvents = () => {
                                 <h6 className='mt-2 flex items-center gap-1.5 text-[15px] font-medium'><FaRegCalendar className='text-[16px] text-[#10B77F]'/><span>{event.event_date}</span></h6>
                                 <h6 className='mt-2 flex items-center gap-1.5 text-[15px] font-medium'><FaLocationDot className='text-[16px] text-[#10B77F]'/><span>{event.location}</span></h6>
                                 {/* <Link to={`/event-details/${event._id}`} className='py-1.5 w-full bg-[#219E64] rounded mt-5 text-white text-[17px] font-medium block text-center'>View Event</Link> */}
-
                                 <div className="flex gap-3 mt-5">
-                                    <Link to={`/event-details/${event._id}`}className="flex-1 py-1.5 bg-[#219E64] rounded text-white text-[17px] font-medium text-center">View Event</Link>
+                                    <Link to={`/event-details/${event.eventId}`} className="flex-1 py-1.5 bg-[#219E64] rounded text-white text-[17px] font-medium text-center">View Event</Link>
                                     <button onClick={() => handleDeleteJoinEvent(event.joinedId)} className="flex-1 py-1.5 bg-red-500 rounded text-white text-[17px] font-medium" >Close</button>
                                 </div>
                             </div>
