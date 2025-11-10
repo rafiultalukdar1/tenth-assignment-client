@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const UpEventCard = ({upEventPromise}) => {
 
-    const events = use(upEventPromise)
+    const events = use(upEventPromise);
 
     return (
         <>

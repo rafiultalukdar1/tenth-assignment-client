@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import PrivetRoute from "../context/PrivetRoute";
 import UpcomingEvents from "../pages/UpcomingEvents/UpcomingEvents";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import JoinedEvents from "../pages/JoinedEvents/JoinedEvents";
 
 
 export const router = createBrowserRouter([
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/joined-events',
-                element: <PrivetRoute><h2 className='text-5xl font-bold py-10 text-center'>Joined Events</h2></PrivetRoute>
+                element: <PrivetRoute><JoinedEvents></JoinedEvents></PrivetRoute>
             },
             {
                 path: 'login',
