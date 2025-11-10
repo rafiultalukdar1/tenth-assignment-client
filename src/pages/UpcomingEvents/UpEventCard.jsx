@@ -12,7 +12,7 @@ const UpEventCard = ({upEventPromise}) => {
         <>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    events.map(event => (<div key={event._id} className='shadow-sm dark:shadow-md rounded-lg bg-white dark:bg-gray-800 p-5'>
+                    events.map(event => (<div key={event._id} className='shadow-sm dark:shadow-md rounded-lg bg-white dark:bg-gray-800'>
                         <img src={event.thumbnail} className='h-[255px] w-full object-cover rounded-t-lg' alt="" />
                         <div className='pt-3 px-4 pb-4'>
                             <p className='inline-flex items-center gap-1 py-0.5 px-2 bg-[#E7F8F2] text-[12px] text-[#10B77F] font-medium rounded-full'><CiShoppingTag /><span>{event.event_type}</span></p>
