@@ -95,7 +95,7 @@ const CreateEvent = () => {
                             </select>
                             <input type='text' name='location' placeholder='Event Location'  className='form-input' />
                             <div className='flex flex-col'>
-                                <DatePicker selected={eventDate} onChange={(date) => setEventDate(date)} minDate={new Date()} showTimeSelect  dateFormat='Pp' placeholderText='Choose Event Date' className='form-input' />
+                                <DatePicker selected={eventDate} timeIntervals={2} onChange={(date) => setEventDate(date)} minDate={new Date()} showTimeSelect  dateFormat='Pp' placeholderText='Choose Event Date' className='form-input' />
                             </div>
                             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                                 <div>

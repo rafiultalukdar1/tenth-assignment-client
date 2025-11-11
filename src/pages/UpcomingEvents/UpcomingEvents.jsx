@@ -3,14 +3,31 @@ import UpEventCard from './UpEventCard';
 import useAxios from "../../context/useAxios";
 
 const UpcomingEvents = () => {
+    // const axios = useAxios();
+    // const [events, setEvents] = useState([]);
+
+    // useEffect(() => {
+    //     axios.get('/upcoming-events')
+    //         .then(res => setEvents(res.data))
+    //         .catch(err => console.error(err));
+    // }, [axios]);
+
+
     const axios = useAxios();
     const [events, setEvents] = useState([]);
-
     useEffect(() => {
         axios.get('/upcoming-events')
             .then(res => setEvents(res.data))
             .catch(err => console.error(err));
     }, [axios]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setEvents(prev => prev.filter(event => new Date(event.event_date) > new Date()));
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <div className='py-[50px] md:py-[70px]'>

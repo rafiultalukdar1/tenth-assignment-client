@@ -133,7 +133,8 @@ const ManageEventsUpdate = () => {
                             <DatePicker 
                                 selected={eventDate} 
                                 onChange={(date) => setEventDate(date)} 
-                                minDate={new Date()} 
+                                minDate={new Date()}
+                                timeIntervals={2}
                                 showTimeSelect 
                                 dateFormat='Pp' 
                                 placeholderText='Choose Event Date' 
