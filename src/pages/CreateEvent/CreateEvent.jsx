@@ -81,7 +81,6 @@ const CreateEvent = () => {
                 <div className='container'>
                     <h2 className='text-center text-[32px] sm:text-[40px] lg:text-[50px] font-bold'>Create New <span className='bg-linear-to-b from-[#219E64] to-[#5FD68E] bg-clip-text text-transparent'>Event</span></h2>
                     <p className='text-center text-[16px] md:text-[18px] font-medium text-[#6D7873]'>Organize a social development event and bring your community together</p>
-
                     <div className='max-w-[750px] mx-auto py-7 px-5 border border-[#CCCCCC] dark:bg-gray-900 rounded-2xl mt-5 lg:mt-8'>
                         <form onSubmit={handleCreateEvent} className='space-y-3'>
                             <input type='text' name='title' placeholder='Event Title'  className='form-input' />

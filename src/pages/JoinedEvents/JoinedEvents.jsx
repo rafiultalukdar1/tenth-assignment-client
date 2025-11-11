@@ -80,16 +80,16 @@ const JoinedEvents = () => {
                                 <h6 className='mt-2 flex items-center gap-1.5 text-[15px] font-medium'><FaRegCalendar className='text-[16px] text-[#10B77F]'/><span>{new Date(event.event_date).toISOString().split('T')[0]}</span></h6>
                                 <h6 className='mt-2 flex items-center gap-1.5 text-[15px] font-medium'><FaLocationDot className='text-[16px] text-[#10B77F]'/><span>{event.location}</span></h6>
                                 {/* <Link to={`/event-details/${event._id}`} className='py-1.5 w-full bg-[#219E64] rounded mt-5 text-white text-[17px] font-medium block text-center'>View Event</Link> */}
+                                {/* <button onClick={() => handleDeleteJoinEvent(event.joinedId)} className="flex-1 py-1.5 bg-[#F43098] rounded text-white text-[17px] font-medium" >Close</button> */}
                                 <div className="grid grid-cols-2 gap-2.5 mt-4">
-                                    <Link to={`/event-details/${event.eventId}`} className="flex-1 py-1.5 bg-[#219E64] rounded text-white text-[17px] font-medium text-center">View Event</Link>
-                                    <div>
-                                        {new Date(event.event_date) < new Date() ? (
-                                            <button className="flex-1 py-1.5 bg-red-500 rounded text-white text-[17px] font-medium cursor-not-allowed w-full"> Past Event</button>
-                                        ) : (
+                                    {new Date(event.event_date) < new Date() ? (
+                                        <button className="col-span-2 py-1.5 bg-red-500 rounded text-white text-[17px] font-medium cursor-not-allowed w-full">Expired</button>
+                                    ) : (
+                                        <>
+                                            <Link to={`/event-details/${event.eventId}`} className="flex-1 py-1.5 bg-[#219E64] rounded text-white text-[17px] font-medium text-center">View Event</Link>
                                             <button onClick={() => handleDeleteJoinEvent(event.joinedId)} className="flex-1 py-1.5 bg-[#F43098] rounded w-full text-white text-[17px] font-medium">Close</button>
-                                        )}
-                                    </div>
-                                    {/* <button onClick={() => handleDeleteJoinEvent(event.joinedId)} className="flex-1 py-1.5 bg-[#F43098] rounded text-white text-[17px] font-medium" >Close</button> */}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>))}
